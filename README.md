@@ -197,6 +197,7 @@ Selanjutnya memvisualisasikan data wisata dan kategori berdasarkan matriks diata
 | Jalan Braga                  | 0      | 0            | 0       | 0     | 0      | 0      |
 | Sanghyang Heuleut            | 0      | 0            | 0       | 0     | 1      | 0      |
 
+# Modeling
 ## Data Wisata dan Kategori Berdasarkan Matriks
 Tabel di atas menunjukkan bahwa Masjid Daarut Tauhiid Bandung termasuk dalam kategori wisata ibadah, yang ditunjukkan oleh nilai 1 pada kolom ibadah. Setelah fitur penting dari setiap wisata berhasil direpresentasikan dalam bentuk matriks (seperti menggunakan CountVectorizer), langkah selanjutnya adalah mengidentifikasi korelasi antara wisata dan kategorinya.
 
@@ -218,7 +219,6 @@ Hasil dari pendekatan content-based filtering menunjukkan bahwa sistem mampu mem
 | Gereja Tiberias Indonesia Bandung | Tempat Ibadah    |
 | Masjid Salman ITB                 | Tempat Ibadah    |
 
-# Modeling
 ## Hasil Rekomendasi dengan Pendekatan Content-Based Filtering
 Pada pengujian kali ini, digunakan data Masjid Daarut Tauhiid Bandung yang memiliki kategori Tempat Ibadah, maka sistem rekomendasi seharusnya menyarankan tempat-tempat wisata lain yang memiliki kemiripan kategori, yaitu sama-sama berkategori Tempat Ibadah.
 
