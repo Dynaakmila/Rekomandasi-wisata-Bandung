@@ -36,6 +36,50 @@ tourism_with_id : merupakan file yang berisi tentang berbagai macam wisata dari 
 user : merupakan file yang berisi tentang pengguna.
 tourism_rating : merupakan file yang berisi tentang kumpulan rating dari berbagai macam wisata yang terdapat di file tourism_with_id.
 
+Struktur dan makna dari setiap fitur (kolom) dalam dataset sebelum dilakukan proses *preprocessing*. Proyek sistem rekomendasi wisata Bandung ini menggunakan tiga dataset utama, yaitu:
+
+1. **`tourism_with_id.csv`** – berisi informasi detail mengenai tempat wisata yang ada di Bandung.
+2. **`user.csv`** – berisi data pengguna yang berinteraksi dengan sistem.
+3. **`tourism_rating.csv`** – berisi data interaksi berupa rating yang diberikan oleh pengguna terhadap tempat wisata.
+
+Setiap dataset memiliki fitur-fitur (kolom) yang penting untuk dianalisis lebih lanjut. Berikut adalah penjelasan masing-masing fitur dalam ketiga dataset tersebut:
+
+### 1. `tourism_with_id.csv`
+
+| Nama Kolom    | Deskripsi                                                                                      |
+| ------------- | ---------------------------------------------------------------------------------------------- |
+| `Place_Id`    | ID unik untuk masing-masing tempat wisata.                                                     |
+| `Place_Name`  | Nama tempat wisata di Bandung, seperti "Gunung Tangkuban Perahu", "Trans Studio", dan lainnya. |
+| `Category`    | Jenis atau kategori wisata, seperti Cagar Alam, Taman Hiburan, Budaya, atau Tempat Ibadah.     |
+| `Description` | Deskripsi singkat mengenai tempat wisata yang mencakup keunikan, sejarah, dan fasilitasnya.    |
+| `Location`    | Alamat atau lokasi geografis dari tempat wisata.                                               |
+| `Lat`         | Koordinat lintang (latitude) dari lokasi wisata.                                               |
+| `Long`        | Koordinat bujur (longitude) dari lokasi wisata.                                                |
+| `Price`       | Harga tiket masuk (jika tersedia), dalam bentuk angka atau kisaran harga.                      |
+| `Rating`      | Rata-rata penilaian dari pengunjung terhadap tempat wisata tersebut.                           |
+
+---
+
+### 2. `user.csv`
+
+| Nama Kolom | Deskripsi                                                     |
+| ---------- | ------------------------------------------------------------- |
+| `User_Id`  | ID unik untuk masing-masing pengguna sistem.                  |
+| `Username` | Nama atau identitas pengguna (bisa dalam bentuk alias).       |
+| `Age`      | Usia pengguna dalam satuan tahun.                             |
+| `Location` | Lokasi tempat tinggal pengguna, biasanya kota atau kabupaten. |
+| `Gender`   | Jenis kelamin pengguna (misalnya: Laki-laki atau Perempuan).  |
+
+---
+
+### 3. `tourism_rating.csv`
+
+| Nama Kolom      | Deskripsi                                                                                                          |
+| --------------- | ------------------------------------------------------------------------------------------------------------------ |
+| `User_Id`       | ID pengguna yang memberikan penilaian (berelasi dengan `user.csv`).                                                |
+| `Place_Id`      | ID tempat wisata yang dinilai (berelasi dengan `tourism_with_id.csv`).                                             |
+| `Place_Ratings` | Nilai penilaian atau rating yang diberikan pengguna terhadap suatu tempat wisata, biasanya dalam skala 1 hingga 5. |
+
 Berdasarkan hasil eksplorasi awal menggunakan .info() dan .isna().sum(), terdapat beberapa nilai kosong (missing values) yang teridentifikasi:
 
 ![image](https://github.com/user-attachments/assets/9568c2ce-1388-4ebd-8d69-4869b39571a5)
