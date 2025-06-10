@@ -224,7 +224,7 @@ Hasil dari pendekatan content-based filtering menunjukkan bahwa sistem mampu mem
 ## Hasil Rekomendasi dengan Pendekatan Content-Based Filtering
 Pada pengujian kali ini, digunakan data Masjid Daarut Tauhiid Bandung yang memiliki kategori Tempat Ibadah, maka sistem rekomendasi seharusnya menyarankan tempat-tempat wisata lain yang memiliki kemiripan kategori, yaitu sama-sama berkategori Tempat Ibadah.
 
-Hasilnya pun sesuai harapan, di mana sistem memberikan Top-N rekomendasi wisata yang semuanya berada dalam kategori Tempat Ibadah, seperti Masjid Raya Bandung, Masjid Pusdai, Masjid Agung Trans Studio Bandung, dan lainnya. Ini membuktikan bahwa sistem berhasil mengidentifikasi dan merekomendasikan tempat dengan kategori yang mirip atau sama.
+Hasilnya pun sesuai harapan, di mana sistem memberikan Top-N rekomendasi wisata yang semuanya berada dalam kategori Tempat Ibadah, seperti Masjid Pusdai, Masjid Agung Trans Studio Bandung, Masjid Raya Bandung, Gereja Tiberias Indonesia Bandung dan Masjid Salman ITB. Ini membuktikan bahwa sistem berhasil mengidentifikasi dan merekomendasikan tempat dengan kategori yang mirip atau sama.
 
 # Colaborative Filtering
 Selain pendekatan content-based filtering, pada proyek ini juga menggunakan pendekatan colaborative filtering dengan tujuan menghasilkan rekomendasi wisata berdasarkan preferensi pengguna dan rating yang telah diberikan sebelumnya. Dari rating tersebut akan digunakan untuk merekomendasikan wisata yang mirip dan belum pernah dikunjung oleh pengguna. Setelah pada tahap Data Preparation pada proses pembagian dataset menjadi data training dan data validasi maka langkah selanjutnya yaitu melakukan mapping data user dan wisata menjadi satu value terlebih dahulu. Berikut merupakan hasil mapping dari data user dan wisata bisa dilihat di notebook.
@@ -292,7 +292,7 @@ Sebagai contoh, pada pengujian dengan menggunakan data wisata **Masjid Daarut Ta
 | Gereja Tiberias Indonesia Bandung | Tempat Ibadah    |
 | Masjid Salman ITB                 | Tempat Ibadah    |
 
-Semua hasil rekomendasi yang diberikan memiliki **kategori yang sama** dengan wisata awal, yaitu **Tempat Ibadah**.
+Semua hasil rekomendasi yang diberikan memiliki **kategori yang sama** dengan wisata awal, yaitu **Tempat Ibadah** meskipun ada Gereja.
 
 Dengan demikian, jika dari **5 wisata yang direkomendasikan**, semuanya benar-benar relevan (sama kategorinya), maka:
 
