@@ -170,9 +170,6 @@ Langkah selanjutnya setelah dipastikan dataset bersih atau tidak terdapat missin
 Membagi Dataset
 Langkah ini hanya digunakan untuk pendekatan colaborative filtering karena pendekatan tersebut menggunakan model untuk dilatih. Pembagian dataset untuk proyek ini yaitu membagi data trai dan validasi dengan komposisi 80:20.
 
----
-
-# Modeling
 Setelah melalui berbagai tahapan seperti Business Understanding, Data Understanding, dan Data Preparation, tahap selanjutnya dalam proyek ini adalah melakukan pemodelan. Pada proyek sistem rekomendasi wisata ini, digunakan dua pendekatan utama, yaitu content-based filtering dan collaborative filtering. Berikut penjelasan dari masing-masing pendekatan:
 
 Content-Based Filtering
@@ -210,6 +207,7 @@ Hasil dari pendekatan content-based filtering menunjukkan bahwa sistem mampu mem
 | Gereja Tiberias Indonesia Bandung | Tempat Ibadah    |
 | Masjid Salman ITB                 | Tempat Ibadah    |
 
+# Modeling
 ## Hasil Rekomendasi dengan Pendekatan Content-Based Filtering
 Pada pengujian kali ini, digunakan data Masjid Daarut Tauhiid Bandung yang memiliki kategori Tempat Ibadah, maka sistem rekomendasi seharusnya menyarankan tempat-tempat wisata lain yang memiliki kemiripan kategori, yaitu sama-sama berkategori Tempat Ibadah.
 
