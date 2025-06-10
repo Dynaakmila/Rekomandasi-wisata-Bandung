@@ -46,17 +46,19 @@ Setiap dataset memiliki fitur-fitur (kolom) yang penting untuk dianalisis lebih 
 
 ### 1. `tourism_with_id.csv`
 
-| Nama Kolom    | Deskripsi                                                                                      |
-| ------------- | ---------------------------------------------------------------------------------------------- |
-| `Place_Id`    | ID unik untuk masing-masing tempat wisata.                                                     |
-| `Place_Name`  | Nama tempat wisata di Bandung, seperti "Gunung Tangkuban Perahu", "Trans Studio", dan lainnya. |
-| `Category`    | Jenis atau kategori wisata, seperti Cagar Alam, Taman Hiburan, Budaya, atau Tempat Ibadah.     |
-| `Description` | Deskripsi singkat mengenai tempat wisata yang mencakup keunikan, sejarah, dan fasilitasnya.    |
-| `Location`    | Alamat atau lokasi geografis dari tempat wisata.                                               |
-| `Lat`         | Koordinat lintang (latitude) dari lokasi wisata.                                               |
-| `Long`        | Koordinat bujur (longitude) dari lokasi wisata.                                                |
-| `Price`       | Harga tiket masuk (jika tersedia), dalam bentuk angka atau kisaran harga.                      |
-| `Rating`      | Rata-rata penilaian dari pengunjung terhadap tempat wisata tersebut.                           |
+| Nama Fitur       | Deskripsi                                                                 |
+|------------------|---------------------------------------------------------------------------|
+| Place_Id         | ID unik untuk setiap tempat wisata yang digunakan sebagai identifikasi    |
+| Place_Name       | Nama lengkap dari tempat wisata                                           |
+| Description      | Ringkasan atau deskripsi singkat mengenai tempat wisata tersebut          |
+| Category         | Kategori atau jenis wisata, seperti Cagar Alam, Budaya, Taman Hiburan, atau Tempat Ibadah |
+| City             | Nama kota tempat wisata berada, seluruh data berlokasi di Bandung         |
+| Price            | Perkiraan biaya tiket masuk atau biaya kunjungan dalam satuan rupiah      |
+| Rating           | Penilaian atau skor rata-rata dari pengguna terhadap tempat wisata tersebut (biasanya skala 1–5) |
+| Time_Minutes     | Estimasi waktu yang dibutuhkan untuk menikmati tempat wisata tersebut (dalam menit) |
+| Coordinate       | Koordinat gabungan dari Latitude dan Longitude                            |
+| Lat              | Garis lintang dari lokasi tempat wisata                                   |
+| Long             | Garis bujur dari lokasi tempat wisata                                     |
 
 ---
 
