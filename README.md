@@ -1,7 +1,7 @@
 # Rekomandasi-wisata-Bandung
 # Laporan Proyek Machine Learning - Dyna Akmila
 ---
-## Project Overview
+# Project Overview
 Pariwisata merupakan sektor penting yang mendorong pertumbuhan ekonomi daerah, termasuk Kota Bandung yang dikenal luas sebagai salah satu destinasi wisata favorit di Indonesia. Kota ini menawarkan berbagai jenis objek wisata seperti wisata alam, kuliner, edukasi, hingga budaya, yang menarik bagi wisatawan domestik maupun mancanegara.
 
 Namun, banyaknya pilihan destinasi justru sering membuat wisatawan mengalami kesulitan dalam memilih tempat yang sesuai dengan preferensi, waktu, dan anggaran mereka. Masalah ini diperparah dengan kurangnya media yang menyajikan informasi rekomendasi wisata secara terstruktur, terpersonalisasi, dan mudah diakses.
@@ -9,8 +9,9 @@ Namun, banyaknya pilihan destinasi justru sering membuat wisatawan mengalami kes
 Proyek ini bertujuan untuk menyusun rekomendasi wisata Bandung yang informatif, terkurasi, dan relevan, guna membantu wisatawan merencanakan perjalanan dengan lebih efisien dan menyenangkan. Rekomendasi disusun berdasarkan kategori wisata (alam, kuliner, budaya, dan edukasi), tingkat popularitas, ulasan pengunjung, serta kemudahan akses lokasi. Solusi ini diharapkan dapat menjadi panduan praktis bagi wisatawan dalam menentukan tujuan wisata mereka.
 
 Berdasarkan data dari Badan Pusat Statistik (BPS) Provinsi Jawa Barat, jumlah wisatawan yang berkunjung ke Bandung pada tahun 2023 tercatat mencapai lebih dari 6 juta orang, yang sebagian besar merupakan wisatawan domestik [1]. Angka ini menunjukkan bahwa Bandung memiliki potensi besar di sektor pariwisata, dan kebutuhan akan informasi wisata yang akurat serta mudah diakses menjadi semakin penting untuk menunjang pengalaman wisata yang optimal.
+
 ---
-## Bussines Understanding
+# Bussines Understanding
 Problem Statements
 - Berdasarkan data mengenai pengguna, bagaimana membuat suatu sistem rekomendasi wisata yang dipersonalisasi dengan teknik Content-Based Filtering?
 - Dengan dataset rating yang tersedia, bagaimana cara mendapatkan rekomendasi wisata yang mungkin disukai pengguna serta belum pernah dikunjungi oleh pengguna tersebut?
@@ -23,10 +24,12 @@ Solution statements
 - Agar menghasilkan rekomendasi wisata yang dipersonalisasi untuk pengguna dengan menggunakan teknik content-based filtering.
 - Teknik kedua terdapat colaborative filtering agar menghasilkan rekomendasi wisata berdasarkan preferensi pengguna serta pengguna belum pernah mengunjungi wisata tersebut.
 ---
-## Data understanding
+# Data understanding
 Proyek sistem rekomendasi wisata ini menggunakan dataset yang tersedia secara publik melalui Kaggle – https://www.kaggle.com/datasets/athreal/destinasi-wisata-dataset. Dataset ini terdiri dari informasi terkait destinasi wisata dari lima kota besar di Indonesia, termasuk Bandung, serta data pengguna dan rating wisata. Dataset ini dipilih karena menyediakan informasi yang cukup lengkap untuk membangun sistem rekomendasi berbasis Content-Based Filtering maupun Collaborative Filtering.
 Jumlah data yang digunakan dalam proyek ini meliputi:
+
 ![image](https://github.com/user-attachments/assets/97409025-e3e6-4e08-a3d7-b1900fa0425f)
+
 Variabel-variabel pada Dataset yang digunakan adalah sebagai berikut:
 package_tourism : merupakan file yang berisi paket untuk liburan.
 tourism_with_id : merupakan file yang berisi tentang berbagai macam wisata dari lima kota terbesar yaitu Bandung, Jakarta, Yogyakarta, Semarang dan Surabaya.
@@ -34,17 +37,23 @@ user : merupakan file yang berisi tentang pengguna.
 tourism_rating : merupakan file yang berisi tentang kumpulan rating dari berbagai macam wisata yang terdapat di file tourism_with_id.
 
 Berdasarkan hasil eksplorasi awal menggunakan .info() dan .isna().sum(), terdapat beberapa nilai kosong (missing values) yang teridentifikasi:
+
 ![image](https://github.com/user-attachments/assets/9568c2ce-1388-4ebd-8d69-4869b39571a5)
+
 Time_Minutes: Memiliki nilai kosong sebanyak 265 data
 Untuk baris Unnamed: 11 dan Unnamed: 12: Seluruh kolom ini berisi nilai kosong (NaN) sebanyak 437 data
 Karena kedua kolom tersebut sepenuhnya kosong dan tidak memberikan kontribusi informasi, maka akan dihapus pada tahap data preparation.
 
 Pada file tourism_with_id terdapat 437 data dari macam-macam wisata yang tersebar di lima kota besar yang sudah dijelaskan, berikut merupakan visualisasi sebaran data tersebut dari masing-masing kota:
+
 ![image](https://github.com/user-attachments/assets/46729e29-5d5a-46df-ab3b-bdfbeede35de)
 
 Pada file tersebut juga terdapat fiel kategory, berikut merupakan visualisasi sebaran data berdasarkan kategory dan data tersebut sudah hanya data wisata yang berada di kota Bandung:
+
 ![image](https://github.com/user-attachments/assets/8595e532-23bf-47a5-96b3-6f88f73a460f)
+
 ---
+
 # Data Preparation
 Tahap selanjutnya yaitu data preparation atau persiapan data. Berikut merupakan tahap-tahap yang dilakukan pada bagian ini:
 
@@ -116,13 +125,16 @@ Langkah selanjutnya setelah dipastikan dataset bersih atau tidak terdapat missin
 
 Membagi Dataset
 Langkah ini hanya digunakan untuk pendekatan colaborative filtering karena pendekatan tersebut menggunakan model untuk dilatih. Pembagian dataset untuk proyek ini yaitu membagi data trai dan validasi dengan komposisi 80:20.
+
 ---
+
 # Modeling
 Setelah melalui berbagai tahapan seperti Business Understanding, Data Understanding, dan Data Preparation, tahap selanjutnya dalam proyek ini adalah melakukan pemodelan. Pada proyek sistem rekomendasi wisata ini, digunakan dua pendekatan utama, yaitu content-based filtering dan collaborative filtering. Berikut penjelasan dari masing-masing pendekatan:
 
 Content-Based Filtering
 Content-Based Filtering merupakan pendekatan dalam sistem rekomendasi yang bekerja dengan mencocokkan item yang disukai oleh pengguna dengan item lain yang memiliki kemiripan berdasarkan atribut-atributnya.
 Sebelum mengembangkan sistem rekomendasi dengan pendekatan ini, langkah awal yang dilakukan adalah mengidentifikasi representasi fitur penting dari setiap kategori wisata yang ada di Bandung. Untuk menemukan fitur-fitur penting tersebut, proyek ini menggunakan metode CountVectorizer dari library scikit-learn, kemudian dilakukan proses fit dan transform terhadap data sehingga diperoleh bentuk matriks. Berikut ini adalah hasil matriks dari proses CountVectorizer:
+
 ![image](https://github.com/user-attachments/assets/64e55488-3ec0-490b-a52f-6a833732e256)
 
 Selanjutnya memvisualisasikan data wisata dan kategori berdasarkan matriks diatas :
@@ -137,6 +149,7 @@ Selanjutnya memvisualisasikan data wisata dan kategori berdasarkan matriks diata
 Tabel di atas menunjukkan bahwa Masjid Daarut Tauhiid Bandung termasuk dalam kategori wisata ibadah, yang ditunjukkan oleh nilai 1 pada kolom ibadah. Setelah fitur penting dari setiap wisata berhasil direpresentasikan dalam bentuk matriks (seperti menggunakan CountVectorizer), langkah selanjutnya adalah mengidentifikasi korelasi antara wisata dan kategorinya.
 
 Untuk mengukur tingkat kemiripan antar wisata berdasarkan kategorinya, digunakan teknik cosine similarity dari library scikit-learn. Teknik ini berguna untuk mengetahui sejauh mana dua tempat wisata memiliki kesamaan berdasarkan fitur kategori yang dimilikinya. Setelah itu, hasil dari perhitungan cosine similarity ini dapat divisualisasikan dalam bentuk matriks kesamaan antar wisata. Visualisasi ini membantu dalam mengembangkan sistem rekomendasi yang lebih akurat, karena wisata yang memiliki tingkat kemiripan tinggi dapat direkomendasikan kepada pengguna yang menyukai salah satu dari tempat tersebut.
+
 ![image](https://github.com/user-attachments/assets/5caf5f2f-ab0d-4ba3-9c0b-39316d434766)
 
 ## Matriks Kesamaan Setiap Wisata
@@ -163,6 +176,7 @@ Selain pendekatan content-based filtering, pada proyek ini juga menggunakan pend
 
 ## Hasil Mapping
 mapping tersebut digunakan untuk menyatukan dari berbagai data serta menjembatani perbedaan dari data tersebut. Setelah melakukan mapping maka selanjutnya yaitu membuat kelas RecommenderNet yang digunakan untuk menghitung nilai kecocokan antara user dan wisata. skor kecocokan ditetapkan dalam skala 0 hingga 1 dengan fungsi aktivasi sigmoid. Setelah membuat class tersebut maka model akan dicompile terlebih dahulu sebelum melakukan proses training. Model ini menggunakan Binarry Crossentropy untuk menghitung los function, optimizer menggunakan Adam (Adaptive Moment Estimation), dan RMSE sebagai metriks evaluation, setelah melakukan compile pada model maka model akan ditraining atau dilataih, berikut merupakan hasil erorr setelah model dilatih:
+
 ![image](https://github.com/user-attachments/assets/a376d103-4840-4b99-9393-a16dce89fc11)
 
 ## Plot Error Model
