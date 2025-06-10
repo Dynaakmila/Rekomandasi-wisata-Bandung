@@ -100,7 +100,6 @@ Pada file tersebut juga terdapat fiel kategory, berikut merupakan visualisasi se
 
 # Data Preparation
 Tahap selanjutnya yaitu data preparation atau persiapan data. Berikut merupakan tahap-tahap yang dilakukan pada bagian ini:
-
 Menampilkan Hanya Data Wisata di Bandung
 Seperti yang diketahui, pada dataset tourism_with_id.csv terdapat data wisata dari lima kota besar. Karena tujuan dari proyek ini adalah untuk membuat sistem rekomendasi wisata yang fokus pada kota Bandung, maka langkah pertama dalam data preparation adalah memfilter data agar hanya menyisakan data wisata yang berada di Bandung.
 
@@ -119,6 +118,11 @@ Berikut merupakan tabel data wisata yang berada di kota Bandung:
 | 332      | Rainbow Garden                   | Rainbow Garden Harapan Indah salah satu taman...                         | Cagar Alam    | Bandung | 20000   | 4.6    | 90.0          | {'lat': -6.8179514, 'lng': 107.618914}      | -6.817951  | 107.618914  |
 | 333      | Kota Mini                        | Destinasi yang sangat menarik bernuansa eropa...                         | Taman Hiburan | Bandung | 20000   | 4.4    | NaN           | {'lat': -6.8186888, 'lng': 107.6169403}     | -6.818689  | 107.616940  |
 | 334      | Chingu Cafe Little Seoul         | Selain populer karena memiliki pemandangan yan...                        | Taman Hiburan | Bandung | 50000   | 4.5    | NaN           | {'lat': -6.9012241, 'lng': 107.6099853}     | -6.901224  | 107.609980  |
+
+## Menghapus Kolom Tidak Relevan
+Pada dataset tourism_with_id.csv, terdapat dua kolom tambahan yaitu 'Unnamed: 11' dan 'Unnamed: 12' yang tidak memiliki informasi penting dan hanya merupakan hasil kesalahan saat proses ekspor data dari spreadsheet. Oleh karena itu, kedua kolom ini dihapus agar tidak mengganggu analisis data selanjutnya.
+
+![image](https://github.com/user-attachments/assets/551fbd70-eb42-4b13-b6cd-44d0f66425b0)
 
 Menggabungkan Data
 Setelah data difilter agar hanya berisi wisata yang berlokasi di Bandung, langkah selanjutnya adalah menggabungkan data rating dengan nama wisata dan kategori wisata. Tujuan penggabungan ini adalah untuk melihat nilai rating dari masing-masing tempat wisata di Bandung serta mengetahui kategori wisata tersebut.
@@ -170,7 +174,16 @@ Langkah selanjutnya setelah dipastikan dataset bersih atau tidak terdapat missin
 Membagi Dataset
 Langkah ini hanya digunakan untuk pendekatan colaborative filtering karena pendekatan tersebut menggunakan model untuk dilatih. Pembagian dataset untuk proyek ini yaitu membagi data trai dan validasi dengan komposisi 80:20.
 
-Setelah melalui berbagai tahapan seperti Business Understanding, Data Understanding, dan Data Preparation, tahap selanjutnya dalam proyek ini adalah melakukan pemodelan. Pada proyek sistem rekomendasi wisata ini, digunakan dua pendekatan utama, yaitu content-based filtering dan collaborative filtering. Berikut penjelasan dari masing-masing pendekatan:
+Encoding User_Id dan Place_Id
+Untuk keperluan Collaborative Filtering, model membutuhkan data dalam format numerik yang merepresentasikan setiap pengguna dan tempat wisata secara unik. Maka dari itu, dilakukan encoding terhadap kolom User_Id dan Place_Id menjadi nilai indeks numerik. Proses ini memastikan bahwa setiap ID pengguna dan wisata dapat dikenali oleh algoritma pemodelan.
+
+![image](https://github.com/user-attachments/assets/6a3799e4-d05b-4601-8f33-d8fbb808c944)
+
+Normalisasi Nilai Rating
+Nilai pada kolom Place_Ratings dinormalisasi agar berada pada skala yang seragam. Hal ini bertujuan untuk menghindari dominasi nilai yang terlalu tinggi atau terlalu rendah dalam model dan menjaga kestabilan performa saat proses pelatihan model Collaborative Filtering. Normalisasi dilakukan menggunakan metode Min-Max Scaling yang mengubah nilai rating menjadi skala antara 0 dan 1.
+
+![image](https://github.com/user-attachments/assets/1bb0f3dd-7dbd-4715-a1d9-cb404977314e)
+
 
 Content-Based Filtering
 Content-Based Filtering merupakan pendekatan dalam sistem rekomendasi yang bekerja dengan mencocokkan item yang disukai oleh pengguna dengan item lain yang memiliki kemiripan berdasarkan atribut-atributnya.
