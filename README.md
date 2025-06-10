@@ -65,10 +65,8 @@ Setiap dataset memiliki fitur-fitur (kolom) yang penting untuk dianalisis lebih 
 | Nama Kolom | Deskripsi                                                     |
 | ---------- | ------------------------------------------------------------- |
 | `User_Id`  | ID unik untuk masing-masing pengguna sistem.                  |
-| `Username` | Nama atau identitas pengguna (bisa dalam bentuk alias).       |
 | `Age`      | Usia pengguna dalam satuan tahun.                             |
 | `Location` | Lokasi tempat tinggal pengguna, biasanya kota atau kabupaten. |
-| `Gender`   | Jenis kelamin pengguna (misalnya: Laki-laki atau Perempuan).  |
 
 ---
 
