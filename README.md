@@ -84,9 +84,9 @@ Berdasarkan hasil eksplorasi awal menggunakan .info() dan .isna().sum(), terdapa
 
 ![image](https://github.com/user-attachments/assets/9568c2ce-1388-4ebd-8d69-4869b39571a5)
 
-Time_Minutes: Memiliki nilai kosong sebanyak 265 data
-Untuk baris Unnamed: 11 dan Unnamed: 12: Seluruh kolom ini berisi nilai kosong (NaN) sebanyak 437 data
-Karena kedua kolom tersebut sepenuhnya kosong dan tidak memberikan kontribusi informasi, maka akan dihapus pada tahap data preparation.
+Time_Minutes: Memiliki nilai kosong sebanyak 232 data
+Untuk baris Unnamed: 11 memiliki 437 data non-null dan Unnamed: 12: memiliki 0 nilai kosong
+Karena kedua kolom tersebut tidak memberikan kontribusi informasi, maka akan dihapus pada tahap data preparation.
 
 Pada file tourism_with_id terdapat 437 data dari macam-macam wisata yang tersebar di lima kota besar yang sudah dijelaskan, berikut merupakan visualisasi sebaran data tersebut dari masing-masing kota:
 
